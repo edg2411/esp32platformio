@@ -22,3 +22,10 @@ jobs:
 
       - name: Build PlatformIO Project
         run: pio run
+
+   - name: Store Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: firmware.bin 
+        path: |
+          .pio/build/esp32doit-devkit-v1/firmware.bin
