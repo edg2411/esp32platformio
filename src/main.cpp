@@ -14,7 +14,7 @@ void setup(){
 }
  
 void loop(){
-  Serial.println("Loop");
+  Serial.println("Loop artifact v3");
   delay(1000);
 }
 

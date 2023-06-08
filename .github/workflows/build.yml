@@ -27,7 +27,7 @@ jobs:
       #   run: pio remote  test
 
       - name: Store Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: firmware.bin 
           path: |
