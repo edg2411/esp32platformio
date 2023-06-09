@@ -33,6 +33,13 @@ jobs:
           file: nightly/version.json
           field: version
           value: ${{ steps.date.outputs.date }}
+      
+      - name: Copy firmware to nightly folder
+        run: |
+          cp .pio/build/esp32doit-devkit-v1/firmware.bin nightly/firmware.bin
+          git add . -A
+          git commit -m "nightly build"
+          git push
 
       # - name: Test PlatformIO Project
       #   run: pio remote  test
