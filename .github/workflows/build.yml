@@ -23,6 +23,17 @@ jobs:
       - name: Build PlatformIO Project
         run: pio run
 
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%h %d %Y - %H:%M:%S')"
+
+      - name: Update version.json file
+        uses: jossef/action-set-json-field@v1
+        with:
+          file: nightly/version.json
+          field: version
+          value: ${{ steps.date.outputs.date }}
+
       # - name: Test PlatformIO Project
       #   run: pio remote  test
 
