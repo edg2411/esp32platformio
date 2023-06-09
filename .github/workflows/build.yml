@@ -23,23 +23,23 @@ jobs:
       - name: Build PlatformIO Project
         run: pio run
 
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%h %d %Y - %H:%M:%S')"
+      # - name: Get current date
+      #   id: date
+      #   run: echo "::set-output name=date::$(date +'%h %d %Y - %H:%M:%S')"
 
-      - name: Update version.json file
-        uses: jossef/action-set-json-field@v1
-        with:
-          file: nightly/version.json
-          field: version
-          value: ${{ steps.date.outputs.date }}
+      # - name: Update version.json file
+      #   uses: jossef/action-set-json-field@v1
+      #   with:
+      #     file: nightly/version.json
+      #     field: version
+      #     value: ${{ steps.date.outputs.date }}
       
-      - name: Copy firmware to nightly folder
-        run: |
-          cp .pio/build/esp32doit-devkit-v1/firmware.bin nightly/firmware.bin
-          git add . -A
-          git commit -m "nightly build"
-          git push
+      # - name: Copy firmware to nightly folder
+      #   run: |
+      #     cp .pio/build/esp32doit-devkit-v1/firmware.bin nightly/firmware.bin
+      #     git add . -A
+      #     git commit -m "nightly build"
+      #     git push
 
       # - name: Test PlatformIO Project
       #   run: pio remote  test
